@@ -229,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Form submission handlers
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
     const admissionForm = document.getElementById('admissionForm');
     const contactForm = document.getElementById('contactForm');
@@ -376,48 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-=======
-const admissionForm = document.getElementById('admissionForm');
-const contactForm = document.getElementById('contactForm');
-
-if (admissionForm) {
-    admissionForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(admissionForm);
-        const data = Object.fromEntries(formData);
-        
-        // Show success message
-        showNotification('Thank you! Your admission inquiry has been submitted. We will contact you soon.', 'success');
-        
-        // Reset form
-        admissionForm.reset();
-        
-        // In a real application, you would send this data to a server
-        console.log('Admission Form Data:', data);
-    });
-}
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Show success message
-        showNotification('Thank you for your message! We will get back to you soon.', 'success');
-        
-        // Reset form
-        contactForm.reset();
-        
-        // In a real application, you would send this data to a server
-        console.log('Contact Form Data:', data);
-    });
-}
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
 
 // Notification function
 function showNotification(message, type = 'success') {

@@ -2297,10 +2297,6 @@ section#home {
     cursor: pointer;
 }
 
-.form-group textarea {
-    resize: vertical;
-}
-
 /* Why Choose SSGA Section */
 .why-choose {
     background: var(--bg-light);

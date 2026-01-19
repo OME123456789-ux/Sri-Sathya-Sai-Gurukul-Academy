@@ -366,7 +366,6 @@ body {
     pointer-events: none;
 }
 
-<<<<<<< HEAD
 .hero-video video {
     width: 100%;
     height: 100%;
@@ -376,8 +375,6 @@ body {
     display: block;
 }
 
-=======
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
 .hero-video iframe {
     width: 100%;
     height: 100%;
@@ -2240,7 +2237,6 @@ section#home {
     margin-bottom: 1.5rem;
 }
 
-<<<<<<< HEAD
 .form-group:last-of-type {
     margin-bottom: 0;
 }
@@ -2255,8 +2251,6 @@ section#home {
     text-transform: uppercase;
 }
 
-=======
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -2268,10 +2262,7 @@ section#home {
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
     background: var(--bg-light);
-<<<<<<< HEAD
     color: var(--text-dark);
-=======
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
 }
 
 .form-group input:focus,
@@ -2280,7 +2271,6 @@ section#home {
     outline: none;
     border-color: var(--primary-color);
     background: white;
-<<<<<<< HEAD
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
@@ -2305,12 +2295,6 @@ section#home {
     background-repeat: no-repeat;
     padding-right: 2.5rem;
     cursor: pointer;
-=======
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
-}
-
-.form-group textarea {
-    resize: vertical;
 }
 
 /* Why Choose SSGA Section */
@@ -2495,7 +2479,6 @@ section#home {
 }
 
 .contact-form-wrapper {
-<<<<<<< HEAD
     background: rgba(255, 255, 255, 0.96);
     padding: 2.75rem 3rem;
     border-radius: 24px;
@@ -2530,20 +2513,12 @@ section#home {
 .contact-form-wrapper > * {
     position: relative;
     z-index: 1;
-=======
-    background: var(--bg-light);
-    padding: 2.5rem;
-    border-radius: 20px;
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     gap: 1.75rem;
-=======
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
 }
 
 /* Footer */
@@ -2734,11 +2709,7 @@ section#home {
         min-height: 500px;
     }
 
-<<<<<<< HEAD
     .hero-video video {
-=======
-    .hero-video {
->>>>>>> 192811d3daf743cf9ac20f9a4b791ff5617b64ab
         object-position: center;
     }
 
