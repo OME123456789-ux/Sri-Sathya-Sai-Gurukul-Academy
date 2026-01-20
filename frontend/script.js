@@ -320,8 +320,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 
                 // API URL - configurable for production deployment
-                // For Vercel: Set window.API_BASE_URL in index.html before this script loads
-                // Or update this value directly with your Render backend URL
+                // For production: Set window.API_BASE_URL in index.html before this script loads
+                // For local development: uses default localhost:8080
                 const apiBaseUrl = window.API_BASE_URL || 'http://localhost:8080';
                 const apiUrl = `${apiBaseUrl}/api/enquiries`;
                 
