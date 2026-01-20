@@ -319,9 +319,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     otherReason: formData.get('otherReason') || null
                 };
                 
-                // Always send to Spring Boot backend on localhost:8080
-                // This avoids issues when the HTML is served from another dev server (like 127.0.0.1:5500)
-                const apiUrl = 'http://localhost:8080/api/enquiries';
+                // Use deployed backend on Render; override via window.API_BASE_URL if present
+                const apiBaseUrl = window.API_BASE_URL || 'https://sri-sathya-sai-gurukul-academy.onrender.com';
+                const apiUrl = `${apiBaseUrl}/api/enquiries`;
                 
                 console.log('Submitting enquiry to:', apiUrl);
                 console.log('Form data:', data);
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 console.error('Network error details:', error);
                 const errorMessage = error.message || 'Network error. Please check your connection and try again.';
-                showNotification(`Network error: ${errorMessage}. Make sure backend is running on http://localhost:8080`, 'error');
+                showNotification(`Network error: ${errorMessage}. Please try again.`, 'error');
             } finally {
                 // Re-enable submit button
                 submitButton.disabled = false;
