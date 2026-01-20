@@ -319,10 +319,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     otherReason: formData.get('otherReason') || null
                 };
                 
-                // API URL - configurable for production deployment
-                // For production: Set window.API_BASE_URL in index.html before this script loads
-                // For local development: uses default localhost:8080
-                const apiBaseUrl = window.API_BASE_URL || 'http://localhost:8080';
+                // API URL - default to Render backend; override via window.API_BASE_URL if needed
+                const apiBaseUrl = window.API_BASE_URL || 'https://sri-sathya-sai-gurukul-academy.onrender.com';
                 const apiUrl = `${apiBaseUrl}/api/enquiries`;
                 
                 console.log('Submitting enquiry to:', apiUrl);
