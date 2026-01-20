@@ -5,18 +5,18 @@ This guide explains how to deploy the Spring Boot application to Render using Do
 ## Prerequisites
 
 1. A Render account (sign up at https://render.com)
-2. A MySQL database on Render (or external database)
+2. A PostgreSQL database on Render (or external Postgres)
 
 ## Deployment Steps
 
-### 1. Create a MySQL Database on Render
+### 1. Create a PostgreSQL Database on Render
 
 1. Go to your Render dashboard
 2. Click "New +" → "PostgreSQL" or "MySQL"
 3. Create a new database instance
 4. Note down the connection details:
    - Host
-   - Port (usually 3306)
+   - Port (usually 5432)
    - Database name
    - Username
    - Password
@@ -37,19 +37,13 @@ This guide explains how to deploy the Spring Boot application to Render using Do
 
 In your Render service settings, add these environment variables:
 
-**Database Configuration:**
-- `DATABASE_HOST`: Your MySQL host (e.g., `dpg-xxxxx-a.oregon-postgres.render.com`)
-- `DATABASE_PORT`: `3306` (or your MySQL port)
-- `DATABASE_NAME`: Your database name
-- `DATABASE_USERNAME`: Your database username
-- `DATABASE_PASSWORD`: Your database password
+**Database Configuration (EXACT variables expected by this app):**
+- `SPRING_DATASOURCE_URL`: `jdbc:postgresql://<HOST>:<PORT>/<DB_NAME>`
+- `SPRING_DATASOURCE_USERNAME`: `<USERNAME>`
+- `SPRING_DATASOURCE_PASSWORD`: `<PASSWORD>`
 
 **Optional:**
 - `PORT`: Render sets this automatically, but you can override if needed
-- `LOG_LEVEL`: Set to `INFO`, `DEBUG`, or `WARN` (default: `INFO`)
-
-**Alternative:** If you prefer to use a single `DATABASE_URL`, you can set:
-- `DATABASE_URL`: `jdbc:mysql://host:port/database?useSSL=true&requireSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true`
 
 ### 4. Deploy
 
@@ -73,9 +67,7 @@ In your Render service settings, add these environment variables:
 - Verify Maven dependencies are accessible
 
 ### Database Connection Issues
-- Verify all database environment variables are set correctly
-- Check that your database allows connections from Render's IP addresses
-- Ensure SSL settings match your database requirements
+- Verify `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD` are set correctly
 
 ### Application Won't Start
 - Check runtime logs in Render dashboard
