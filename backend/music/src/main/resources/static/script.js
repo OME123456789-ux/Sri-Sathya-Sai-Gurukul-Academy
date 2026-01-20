@@ -297,83 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (enquiryForm) {
-        enquiryForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Get form elements
-            const submitButton = enquiryForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
-            
-            // Disable submit button and show loading state
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<span>Submitting...</span>';
-            
-            try {
-                // Get form data
-                const formData = new FormData(enquiryForm);
-                const data = {
-                    name: formData.get('name'),
-                    phone: formData.get('phone'),
-                    inquiry: formData.get('inquiry'),
-                    otherReason: formData.get('otherReason') || null
-                };
-                
-                // Use deployed backend on Render; override via window.API_BASE_URL if present
-                const apiBaseUrl = window.API_BASE_URL || 'https://sri-sathya-sai-gurukul-academy.onrender.com';
-                const apiUrl = `${apiBaseUrl}/api/enquiries`;
-                
-                console.log('Submitting enquiry to:', apiUrl);
-                console.log('Form data:', data);
-                
-                // Send data to backend API
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                console.log('Response status:', response.status);
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    showNotification('Thank you! Your enquiry has been submitted. We will contact you soon.', 'success');
-                    
-                    // Reset form
-                    enquiryForm.reset();
-                    
-                    // Hide other reason field if it was shown
-                    const otherReasonGroup = enquiryForm.querySelector('#otherReasonGroup');
-                    if (otherReasonGroup) {
-                        otherReasonGroup.style.display = 'none';
-                    }
-                    
-                    console.log('Enquiry submitted successfully:', result);
-                } else {
-                    let errorMessage = 'Error submitting enquiry. Please try again.';
-                    try {
-                        const errorData = await response.json();
-                        errorMessage = errorData.message || errorMessage;
-                        console.error('Error response:', errorData);
-                    } catch (parseError) {
-                        console.error('Error parsing error response:', parseError);
-                        errorMessage = `Server error (${response.status}). Please check if backend is running.`;
-                    }
-                    showNotification(errorMessage, 'error');
-                }
-            } catch (error) {
-                console.error('Network error details:', error);
-                const errorMessage = error.message || 'Network error. Please check your connection and try again.';
-                showNotification(`Network error: ${errorMessage}. Please try again.`, 'error');
-            } finally {
-                // Re-enable submit button
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalButtonText;
-            }
-        });
-    }
+    // Enquiry form now submits directly to Formspree via HTML form action/method.
+    // Do not intercept with fetch; let the browser submit normally.
 });
 
 // Notification function

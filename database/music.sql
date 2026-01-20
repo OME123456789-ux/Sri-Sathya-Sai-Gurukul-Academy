@@ -1,1 +1,1 @@
-create database music;
+select *from enquiries;
